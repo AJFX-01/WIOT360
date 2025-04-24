@@ -151,6 +151,11 @@ tests/
 
 ---
 
+## ERD diagram
+![Database Diagram](./prisma/erd.svg)
+
+---
+
 ## 📄 License
 
 Licensed under the **MIT License**.  

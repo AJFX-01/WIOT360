@@ -1,7 +1,3 @@
-
----
-
-```md
 # 🚗 Vehicle Operations API
 
 A modern, high-performance backend API built with **Fastify**, **TypeScript**, and **Prisma ORM**. Designed to manage vehicle types, operations, and schedules with full support for **soft deletes**.
@@ -150,15 +146,15 @@ tests/
 |---------------------|---------------------------------|
 | `npm run dev`       | Start the development server    |
 | `npm run build`     | Compile TypeScript              |
-| `npm run test`      | Run Jest tests                  |
-| `npx prisma studio`| Open Prisma DB browser UI       |
+| `npm test`          | Run Jest tests                  |
+| `npx prisma studio` | Open Prisma DB browser UI       |
 
 ---
 
 ## 📄 License
 
 Licensed under the **MIT License**.  
-© 2025 Your Name
+© 2025 Ajegbomogun Opeyemi
 
 ---
 
@@ -170,5 +166,3 @@ Licensed under the **MIT License**.
 ---
 
 ```
-
-Let me know if you'd like it converted into HTML, Markdown + badges (e.g., Build, License, Test Coverage), or tailored to your GitHub repository and name.

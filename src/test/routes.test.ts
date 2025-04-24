@@ -25,7 +25,7 @@ describe('Vehicle Routes', () => {
       url: '/api/vehicle-types',
       payload: { name: 'Truck' }
     });
-    console.log("test1",response)
+
     expect(response.statusCode).toBe(201);
     const body = JSON.parse(response.body);
     vehicleTypeId = body.id;
@@ -41,7 +41,7 @@ describe('Vehicle Routes', () => {
         quantity: 5
       }
     });
-    console.log("test2",response)
+
     expect(response.statusCode).toBe(201);
     const body = JSON.parse(response.body);
     expect(body.vehicleTypeId).toBe(vehicleTypeId);
@@ -60,7 +60,7 @@ describe('Vehicle Routes', () => {
         date: new Date().toISOString()
       }
     });
-    console.log("test3",response)
+
     expect(response.statusCode).toBe(201);
     const body = JSON.parse(response.body);
     expect(body.source).toBe('City A');
@@ -71,7 +71,7 @@ describe('Vehicle Routes', () => {
       method: 'GET',
       url: '/api/vehicle-types'
     });
-    console.log("test5",response)
+
     expect(response.statusCode).toBe(200);
     const body = JSON.parse(response.body);
     expect(body.length).toBeGreaterThan(0);
@@ -82,7 +82,7 @@ describe('Vehicle Routes', () => {
       method: 'GET',
       url: `/api/vehicle-types/${vehicleTypeId}/aggregates`
     });
-    console.log("test5",response)
+
     expect(response.statusCode).toBe(200);
     const body = JSON.parse(response.body);
     expect(body.totalOperations).toBeGreaterThan(0);
@@ -94,7 +94,7 @@ describe('Vehicle Routes', () => {
       method: 'DELETE',
       url: `/api/vehicle-types/${vehicleTypeId}`
     });
-    console.log("test5",response)
+
     expect(response.statusCode).toBe(200);
     const body = JSON.parse(response.body);
     expect(body.message).toBe('VehicleType and related records soft-deleted');
@@ -105,7 +105,7 @@ describe('Vehicle Routes', () => {
       method: 'GET',
       url: `/api/vehicle-types/${vehicleTypeId}/schedules`
     });
-    console.log("test7",response)
+
     expect(response.statusCode).toBe(200);
     const body = JSON.parse(response.body);
     expect(body.length).toBe(0);

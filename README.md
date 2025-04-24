@@ -156,6 +156,46 @@ tests/
 
 ---
 
+## 🐳 Run with Docker
+
+If you'd like to run the application with Docker, follow the instructions below.
+
+### 1. Docker Prerequisites
+
+Ensure you have **Docker** and **Docker Compose** installed on your system. If you don't have them installed, follow the instructions on the official Docker website:
+
+- [Install Docker](https://docs.docker.com/get-docker/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+### 2. Build and Run the Application
+
+To build the Docker image and run the application, use the following script:
+
+```bash
+./docker-run.sh
+```
+
+This script will:
+
+- Build the Docker image from the `Dockerfile`.
+- Start the application in a Docker container.
+
+### 3. Stop the Application
+
+To stop the running Docker container, use the following script:
+
+```bash
+./docker-stop.sh
+```
+
+This will stop the running Docker container.
+
+### 4. Configuration via `.env` in Docker
+
+The `.env` file used in the Docker container is injected when the container starts. Make sure your `DATABASE_URL` is correctly set in the `.env` file before running the container.
+
+---
+
 ## 📄 License
 
 Licensed under the **MIT License**.  

@@ -33,8 +33,8 @@ A modern, high-performance backend API built with **Fastify**, **TypeScript**, a
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/vehicle-ops-api.git
-cd vehicle-ops-api
+git clone https://github.com/AJFX-01/WIOT360.git
+cd WIOT360
 ```
 
 ### 2. Install dependencies
@@ -154,7 +154,7 @@ tests/
 ## 📄 License
 
 Licensed under the **MIT License**.  
-© 2025 Ajegbomogun Opeyemi
+© 2025 Ajegbomogun Opeyemi 
 
 ---
 
@@ -162,7 +162,5 @@ Licensed under the **MIT License**.
 
 - Always run `npx prisma generate` after editing `schema.prisma`.
 - You **can commit** the `generated` folder (especially when using custom Prisma output paths), but it's often ignored if not customized.
-
----
 
 ```

@@ -1,0 +1,26 @@
+{
+  "name": "wiot360",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "fastify": "^5.3.2",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.14.1",
+    "jest": "^29.7.0",
+    "prisma": "^6.6.0",
+    "ts-jest": "^29.3.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}

@@ -27,6 +27,7 @@ model Operation {
   vehicleType   VehicleType @relation(fields: [vehicleTypeId], references: [id])
   vehicleTypeId Int
   quantity      Int
+  name          String  
   createdAt     DateTime @default(now())
   deletedAt     DateTime?
 }

@@ -6,7 +6,8 @@ export const createVehicleTypeSchema = z.object({
 
 export const createOperationSchema = z.object({
   vehicleTypeId: z.number().int().positive(),
-  quantity: z.number().int().positive()
+  quantity: z.number().int().positive(),
+  name: z.string().min(3)
 });
 
 export const createScheduleSchema = z.object({

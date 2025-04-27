@@ -10,4 +10,8 @@ export default async function vehicleRoutes(fastify: FastifyInstance) {
   fastify.get('/vehicle-types/:id/aggregates', controller.getAggregatedData);
   fastify.delete('/vehicle-types/:id', controller.softDeleteVehicleType);
   fastify.get('/vehicle-types', controller.getAllVehicleTypes);
+  fastify.put('/api/vehicle-types/:id', controller.updateVehicleType);
+  fastify.put('/api/operations/:id', controller.updateOperation);
+  fastify.put('/api/repeating-schedules/:id', controller.updateSchedule);
+
 }

@@ -15,5 +15,8 @@ export const createScheduleSchema = z.object({
   destination: z.string().min(2),
   duration: z.number().positive(),
   distance: z.number().positive(),
-  date: z.string().refine(val => !isNaN(Date.parse(val)), { message: 'Invalid date' })
+  timeOfDay: z.string(), // we'll validate format maybe later
+  startDate: z.string(), // cast to Date later
+  endDate: z.string().optional(), // optional
+  repeatPattern: z.enum(["DAILY", "WEEKLY", "MONTHLY"]),
 });

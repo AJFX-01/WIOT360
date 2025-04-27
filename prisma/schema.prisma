@@ -39,7 +39,10 @@ model Schedule {
   destination   String
   duration      Float
   distance      Float
-  date          DateTime
+  timeOfDay     String    
+  startDate     DateTime 
+  endDate       DateTime? 
+  repeatPattern String
   deletedAt     DateTime?
 }
 

@@ -45,7 +45,7 @@ describe('Vehicle Routes', () => {
     expect(body.vehicleTypeId).toBe(vehicleTypeId);
   });
 
-  it('should create a schedule for vehicle type', async () => {
+  it('should create a repeating schedule for vehicle type', async () => {
     const response = await fastify.inject({
       method: 'POST',
       url: '/api/schedules',
@@ -53,15 +53,20 @@ describe('Vehicle Routes', () => {
         vehicleTypeId,
         source: 'City A',
         destination: 'City B',
-        duration: 2.5,
-        distance: 120.0,
-        date: new Date().toISOString()
+        duration: 2,
+        distance: 120.0,      
+        timeOfDay: '10:00',  
+        startDate: new Date().toISOString(),
+        endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        repeatPattern: 'DAILY'
       }
     });
-
+  
     expect(response.statusCode).toBe(201);
     const body = JSON.parse(response.body);
     expect(body.source).toBe('City A');
+    expect(body.destination).toBe('City B');
+    expect(body.repeatPattern).toBe('DAILY');
   });
 
   it('should fetch all vehicle types', async () => {

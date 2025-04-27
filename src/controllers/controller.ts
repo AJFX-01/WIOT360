@@ -1,4 +1,4 @@
-import { FastifyRequest, FastifyReply } from 'fastify';
+import  { FastifyRequest, FastifyReply } from 'fastify';
 import { createOperationSchema, createScheduleSchema, createVehicleTypeSchema } from '../validators/validators';
 import prisma from '../../prisma';
 
@@ -12,6 +12,23 @@ export const createVehicleType = async (request: FastifyRequest, reply: FastifyR
   }
 };
 
+export const updateVehicleType = async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
+  try {
+    const id = parseInt(request.params.id, 10);
+    const data = createVehicleTypeSchema.parse(request.body);
+
+    const vehicle = await prisma.vehicleType.update({
+      where: { id },
+      data,
+    });
+
+    reply.code(200).send(vehicle);
+  } catch (err) {
+    reply.code(400).send({ error: (err) });
+  }
+};
+
+
 export const createOperation = async (request: FastifyRequest, reply: FastifyReply) => {
   try {
     const data = createOperationSchema.parse(request.body);
@@ -22,15 +39,71 @@ export const createOperation = async (request: FastifyRequest, reply: FastifyRep
   }
 };
 
-export const createSchedule = async (request: FastifyRequest, reply: FastifyReply) => {
+export const updateOperation = async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
   try {
-    const data = createScheduleSchema.parse(request.body);
-    const schedule = await prisma.schedule.create({ data });
-    reply.code(201).send(schedule);
+    const id = parseInt(request.params.id, 10);
+    const data = createOperationSchema.parse(request.body);
+
+    const operation = await prisma.operation.update({
+      where: { id },
+      data,
+    });
+
+    reply.code(200).send(operation);
   } catch (err) {
-    reply.code(400).send({ error: err });
+    reply.code(400).send({ error: (err) });
   }
 };
+
+
+export const createSchedule = async (request: FastifyRequest, reply: FastifyReply) => {
+  try {
+    const parsed = createScheduleSchema.safeParse(request.body);
+
+    if (!parsed.success) {
+      return reply.status(400).send({ error: parsed.error.errors });
+    }
+
+    const { vehicleTypeId, source, destination, duration, distance, timeOfDay, startDate, endDate, repeatPattern } = parsed.data;
+
+    const newRepeatingSchedule = await prisma.schedule.create({
+      data: {
+        vehicleTypeId,
+        source,
+        destination,
+        duration,
+        distance,
+        timeOfDay,
+        startDate: new Date(startDate),
+        endDate: endDate ? new Date(endDate) : null,
+        repeatPattern,
+      },
+    });
+
+    return reply.status(201).send(newRepeatingSchedule);
+  } catch (error) {
+    console.error(error);
+    return reply.status(500).send({ error: "Something went wrong." });
+  }
+
+};
+
+export const updateSchedule = async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
+  try {
+    const id = parseInt(request.params.id, 10);
+    const data = createScheduleSchema.parse(request.body);
+
+    const schedule = await prisma.schedule.update({
+      where: { id },
+      data,
+    });
+
+    reply.code(200).send(schedule);
+  } catch (err) {
+    reply.code(400).send({ error: (err) });
+  }
+};
+
 
 export const getAllOperations = async (_request: FastifyRequest, reply: FastifyReply) => {
   const operations = await prisma.operation.findMany({

@@ -77,6 +77,7 @@ Server runs on: **`http://localhost:3000/api`**
 | POST   | `/api/vehicle-types`            | Create a new vehicle type         |
 | GET    | `/api/vehicle-types`            | Fetch all active vehicle types    |
 | DELETE | `/api/vehicle-types/:id`        | Soft delete a vehicle type        |
+| PUT    | `/api/vehicle-types/:id`        | Update a vehicle type        |
 
 ### 🧾 Operations
 
@@ -84,6 +85,7 @@ Server runs on: **`http://localhost:3000/api`**
 |--------|------------------------|---------------------------|
 | POST   | `/api/operations`      | Create an operation       |
 | GET    | `/api/operations`      | Fetch active operations   |
+| PUT    | `/api/operations/:id`  | update active operations   |
 
 ### 📅 Schedules
 
@@ -91,6 +93,7 @@ Server runs on: **`http://localhost:3000/api`**
 |--------|------------------------------------------|--------------------------------------|
 | POST   | `/api/schedules`                         | Create a schedule                    |
 | GET    | `/api/vehicle-types/:id/schedules`       | Get schedules for a vehicle type     |
+| PUT    | `/api/vehicle-types/:id/`                | Update schedules for a vehicle type  |
 
 ### 📊 Aggregates
 

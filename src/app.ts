@@ -1,9 +1,8 @@
 import Fastify from 'fastify';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../prisma';
 import vehicleRoutes from './routes/route';
 
 const fastify = Fastify();
-const prisma = new PrismaClient();
 
 fastify.register(vehicleRoutes, { prefix: '/api' });
 

@@ -1,9 +1,7 @@
 import Fastify from 'fastify';
 import { PrismaClient } from '@prisma/client';
 import vehicleRoutes from '../routes/route';
-
-
-const prisma = new PrismaClient();
+import prisma from '../../prisma';
 
 describe('Vehicle Routes', () => {
   const fastify = Fastify();

@@ -1,8 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { PrismaClient } from '@prisma/client';
 import { createOperationSchema, createScheduleSchema, createVehicleTypeSchema } from '../validators/validators';
-
-const prisma = new PrismaClient();
+import prisma from '../../prisma';
 
 export const createVehicleType = async (request: FastifyRequest, reply: FastifyReply) => {
   try {
